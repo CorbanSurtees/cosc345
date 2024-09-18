@@ -79,8 +79,8 @@ jobs:
       # Step: Zip the build and images directories
       - name: Zip directories
         run: |
-          zip -r build.zip build/
-          zip -r images.zip images/
+          zip -r combined.zip build/ images/
+
 
       # Step 10: Create GitHub Release and upload assets
       - name: Create GitHub Release and upload assets
