@@ -79,8 +79,11 @@ jobs:
       # Step 10: Zip build and images files
       - name: Zip directories
         run: |
+          mkdir -p temp
+          cp -r build/* temp
           mkdir -p build/build
-          cp -r build/* build/build/
+          cp -r temp/* build/build
+          rm -rf temp
           zip -r runItTwice.zip build/ images/
 
 
