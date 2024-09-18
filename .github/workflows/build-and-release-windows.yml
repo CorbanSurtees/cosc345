@@ -79,7 +79,7 @@ jobs:
       # Step: Zip the build and images directories
       - name: Zip directories
         run: |
-          zip -r combined.zip build/ images/
+          zip -r runItTwice.zip build/ images/
 
 
       # Step 10: Create GitHub Release and upload assets
@@ -90,8 +90,7 @@ jobs:
           name: ${{ inputs.release_name }}
           body: ${{ inputs.release_description }}
           files: |
-            build.zip
-            images.zip
+            runItTwice.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
