@@ -80,9 +80,9 @@ jobs:
       - name: Zip directories
         run: |
           mkdir -p temp
-          cp -r build/* temp
+          mv -r build/* temp
           mkdir -p build/build
-          cp -r temp/* build/build
+          mv -r temp/* build/build
           rm -rf temp
           zip -r runItTwice.zip build/ images/
 
