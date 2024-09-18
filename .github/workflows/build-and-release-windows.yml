@@ -40,12 +40,15 @@ jobs:
       - name: Run
         run: ${{github.workspace}}/build/Release/PokerGame.exe -ci
 
-      # Step 6: Upload the compiled executable as an artifact
-      - name: Upload executable
+      # Step 6: Upload the build directory and images directory as artifacts
+      - name: Upload build and images directories
         uses: actions/upload-artifact@v3
         with:
-          name: windows-executable
-          path: ${{github.workspace}}/build/Release/PokerGame.exe
+          name: build-artifacts
+          path: |
+            ${{ github.workspace }}/build/
+            ${{ github.workspace }}/images/
+
 
   release:
     needs: build
